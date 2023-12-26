@@ -1,21 +1,20 @@
 // Flow / variables
 // code ! programming withg p5.js
-
-let circleX = 100;
+let squareSize;
+let lineWidth;
 
 function setup() {
   createCanvas(400, 300);
-}
-
-function mousePressed() {
-  circleX = 0;
+  background(100);
 }
 
 function draw() {
-  background(0);
-  noStroke();
-  fill(255);
-  circle(circleX, 150, 64);
+  lineWidth = random(4, 28);
+  squareSize = random(5, 250);
 
-  circleX++;
+  rectMode(CENTER);
+  strokeWeight(lineWidth);
+  stroke(0, 0, 255, 10);
+  fill(0, 255, 0, 10);
+  square(200, 150, squareSize);
 }
