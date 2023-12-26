@@ -1,13 +1,15 @@
 // Flow / variables
 // code ! programming withg p5.js
-var col = 0;
+var r = 0;
+var b = 255;
 function setup() {
-  createCanvas(400, 300);
+  createCanvas(600, 400);
 }
 
 function draw() {
-  col = mouseX / 2;
-  background(col);
+  r = map(mouseX, 0, 600, 0, 255);
+  b = map(mouseX, 0, 600, 255, 0);
+  background(r, 0, b);
   fill(250, 118, 222);
   ellipse(mouseX, 200, 64, 64);
 }
