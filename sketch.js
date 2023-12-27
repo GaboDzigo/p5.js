@@ -1,15 +1,31 @@
 // Flow / variables
 // code ! programming withg p5.js
-var r = 0;
-var b = 255;
+let x = 200;
+let y = 200;
+let extraCanvas;
+
 function setup() {
-  createCanvas(600, 400);
+  createCanvas(400, 400);
+  extraCanvas = createGraphics(400, 400);
+  extraCanvas.clear();
+  background(0);
 }
 
 function draw() {
-  r = map(mouseX, 0, 600, 0, 255);
-  b = map(mouseX, 0, 600, 255, 0);
-  background(r, 0, b);
-  fill(250, 118, 222);
-  ellipse(mouseX, 200, 64, 64);
+  // No trails
+  background(0);
+  x += random(-5, 5);
+  y += random(-5, 5);
+
+  // trails
+  if (mouseIsPressed) {
+    extraCanvas.fill(255, 150);
+    extraCanvas.noStroke();
+    extraCanvas.ellipse(mouseX, mouseY, 60, 60);
+  }
+  image(extraCanvas, 0, 0);
+  fill(255, 0, 0);
+  stroke(255);
+  rectMode(CENTER);
+  rect(x, y, 20, 20);
 }
