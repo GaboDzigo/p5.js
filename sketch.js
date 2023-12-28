@@ -1,3 +1,6 @@
+let speed = 3;
+let x = 0;
+
 function setup() {
   createCanvas(600, 400);
 }
@@ -7,9 +10,9 @@ function draw() {
   stroke(255);
   strokeWeight(4);
   noFill();
-  if (mouseX > 300) {
-    fill(255, 0, 200);
+  ellipse(x, 200, 100, 100);
+  if (x > width || x < 0) {
+    speed = speed * -1;
   }
-
-  ellipse(300, 200, 100, 100);
+  x += speed;
 }
