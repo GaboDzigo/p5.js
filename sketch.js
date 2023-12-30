@@ -1,37 +1,21 @@
-var on = false;
-
 function setup() {
   createCanvas(600, 400);
 }
 
 function draw() {
-  if (on) {
-    background(0, 255, 0);
-  } else {
-    background(0);
-  }
-
-  stroke(255);
+  background(0);
   strokeWeight(4);
-  noFill();
-  if (mouseX > 250 && mouseX < 350 && mouseY > 150 && mouseY < 250) {
-    if (mouseIsPressed) {
-      background(0, 255, 0);
-    }
-    fill(255, 0, 200);
-  }
-  rectMode(CENTER);
-  rect(300, 200, 100, 100);
-}
-function mousePressed() {
-  if (mouseX > 250 && mouseX < 350 && mouseY > 150 && mouseY < 250) {
-    on = !on;
-  }
-}
+  stroke(255);
 
-//
-//   if (mouseIsPressed) {
-//     background(0, 255, 0);
-//   }
-//   fill(255, 0, 200);
-// }
+  var x  = 0;
+  while(x <= width) {
+    fill(0, 200, 255)
+  ellipse(x, 100, 25, 25);
+  x += 50;
+  }
+
+  for(var x = 0; x <= width; x += 50) {
+    fill(255, 0 , 200)
+    ellipse(x, 300, 25, 25);
+  }
+}
