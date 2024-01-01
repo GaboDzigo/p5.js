@@ -1,38 +1,19 @@
-var ball = {
-  x: 300,
-  y:200,
-  xspeed:4,
-  yspeed: -3
-}
-
-
 function setup() {
   createCanvas(600, 400);
 }
 
 function draw() {
-  background(0);
-  move();
-  bounce();
-  display();
+  background(50);
+  lolipop(100, 100, 50);
+  lolipop(300, 200, 150);
+  lolipop(200, 300, 100);
 }
 
-function move() {
-  ball.x += ball.xspeed;
-  ball.y += ball.yspeed;
-}
-function bounce() {
-  if(ball.x > width || ball.x < 0) {
-    ball.xspeed *= -1;
-  }
+function lolipop(x, y, diameter) {
 
-  if(ball.y > height || ball.y < 0) {
-    ball.yspeed *= -1;
-  }
-}
-function display() {
-  stroke(255);
-  strokeWeight(4);
-  fill(255,0,200);
-  ellipse(ball.x, ball.y, 24, 24);
+  fill(0,200,255),
+  rect(x-10,y,20,150),
+
+  fill(255,0,200),
+  ellipse(x,y,diameter,diameter)
 }
