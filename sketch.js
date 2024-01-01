@@ -1,17 +1,38 @@
+var ball = {
+  x: 300,
+  y:200,
+  xspeed:4,
+  yspeed: -3
+}
+
 
 function setup() {
-  createCanvas(955, 900);
+  createCanvas(600, 400);
 }
 
 function draw() {
   background(0);
-  strokeWeight(4);
-  stroke(255);
+  move();
+  bounce();
+  display();
+}
 
-  for(var x = 0; x <= width; x += 50) {
-    for(var y = 0; y <= width; y += 50){
-    fill(random(255), 0, random(255))
-    ellipse(x, y, 25, 25);
-    }
+function move() {
+  ball.x += ball.xspeed;
+  ball.y += ball.yspeed;
+}
+function bounce() {
+  if(ball.x > width || ball.x < 0) {
+    ball.xspeed *= -1;
   }
+
+  if(ball.y > height || ball.y < 0) {
+    ball.yspeed *= -1;
+  }
+}
+function display() {
+  stroke(255);
+  strokeWeight(4);
+  fill(255,0,200);
+  ellipse(ball.x, ball.y, 24, 24);
 }
