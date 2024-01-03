@@ -1,47 +1,19 @@
-let bubble1;
-let bubble2;
+var words = ["rainbow","heart","purple","friendship"];
+var index = 0;
 function setup() {
-  createCanvas(600,400);
-  bubble1 = new Bubble();
-  bubble2 = new Bubble();
-  print(Bubble.x, Bubble.y)
+createCanvas(400,400)
 }
 
 function draw() {
   background(0);
-  bubble1.move();
-  bubble1.show();
-  bubble2.move();
-  bubble2.show();
+  fill(255);
+  textSize(32)
+  text(words[index],12,200)
 }
 
-class Bubble {
-  constructor() {
-    this.x = 200;
-    this.y = 150;
+function mousePressed() {
+  index = index + 1;
+  if(index == 4) {
+    index = 0;
   }
-
-  move() {
-    this.x += random(-5, 5);
-    this.y += random(-5, 5);
-  }
-
-  show() {
-    stroke(255);
-      strokeWeight(4)
-      noFill();
-       ellipse( this.x,  this.y, 24,24)
-    }
-  }
-
-
-// function show() {
-//   stroke(255);
-//   strokeWeight(4)
-//   noFill();
-//   ellipse(bubble.x, bubble.y, 24,24)
-// }
-
-// function move() {
-// 
-// }
+}
