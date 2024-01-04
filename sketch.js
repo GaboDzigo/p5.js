@@ -7,7 +7,7 @@ function setup() {
 function mousePressed() {
   let r = random(10,50);
   let b = new Bubble(mouseX, mouseY, r);
-  bubbles[0] = b;
+  bubbles.push(b);
 
 }
 
