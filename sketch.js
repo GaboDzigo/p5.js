@@ -1,16 +1,40 @@
- var nums = [100,25,46,72];
+let bubbles = [];
 
-var num = 23;
 function setup() {
-createCanvas(500,400)
+  createCanvas(600,400);
+}
+
+function mousePressed() {
+  let r = random(10,50);
+  let b = new Bubble(mouseX, mouseY, r);
+  bubbles[0] = b;
+
 }
 
 function draw() {
   background(0);
+  for(let i = 0; i < bubbles.length; i++) {
+    bubbles[i].move();
+    bubbles[i].show();
+  }
+}
 
-  for(var i = 0; i < 4; i++) {
-    stroke(255);
-    noFill(51);
-    ellipse(i *100 + 100,200, nums[i], nums[i]);
+class Bubble {
+  constructor(x, y, r) {
+    this.x = x;
+    this.y = y;
+    this.r = r;
+  }
+  
+  move() {
+   this.x += random(-5, 5);
+   this.y += random(-5, 5);
+  }
+  
+  show() {
+   stroke(255);
+   strokeWeight(4);
+   noFill();
+   ellipse(this.x, this.y, this.r * 2);
   }
 }
