@@ -4,11 +4,10 @@ function setup() {
   createCanvas(600,400);
 }
 
-function mousePressed() {
+function mouseDragged() {
   let r = random(10,50);
   let b = new Bubble(mouseX, mouseY, r);
   bubbles.push(b);
-
 }
 
 function draw() {
@@ -34,7 +33,7 @@ class Bubble {
   show() {
    stroke(255);
    strokeWeight(4);
-   noFill();
+   fill(230,0,150)
    ellipse(this.x, this.y, this.r * 2);
   }
 }
