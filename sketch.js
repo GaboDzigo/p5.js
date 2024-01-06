@@ -13,7 +13,7 @@ function setup() {
 }
 
 function mousePressed() {
-  for(let i = 0; i < bubbles.length; i++) {
+  for(let i = bubbles.length-1; i >= 0; i--) {
     if(bubbles[i].contains(mouseX, mouseY)) {
      bubbles.splice(i, 1)
     }
