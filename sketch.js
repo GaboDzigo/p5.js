@@ -6,9 +6,7 @@ function setup() {
 }
 
 function mouseDragged() {
-    let x = random(width);
-    let y = random(height);
-    let r = random(10,50)
+    let r = 40;
     let b  = new Bubble(mouseX, mouseY, r);
     bubbles.push(b);
 }
@@ -26,6 +24,11 @@ function draw() {
     bubbles[i].move();
     bubbles[i].show();
   }
+
+  if(bubbles.length > 10) {
+    bubbles.splice(0, 1)
+  }
+
 }
 
 class Bubble {
