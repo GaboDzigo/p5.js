@@ -3,7 +3,7 @@ let bubbles = [];
 
 function setup() {
   createCanvas(600,400);
-  for(let i = 0; i < 5; i++) {
+  for(let i = 0; i < 15; i++) {
   let x = random(width);
   let y = random(height);
   let r = random(10,50)
@@ -13,15 +13,21 @@ function setup() {
 }
 
 function mousePressed() {
-   for(let i = 0; i < bubbles.length; i++) {
-    bubbles[i].clicked(mouseX, mouseY);
-    bubbles[i].clicked();
-  }
+  for(let i = 0; i < bubbles.length; i++) {
+    if(bubbles[i].contains(mouseX, mouseY)) {
+     bubbles.splice(i, 1)
+    }
 }
-
+}
 function draw() {
   background(0);
   for(let i = 0; i < bubbles.length; i++) {
+    if(bubbles[i].contains(mouseX, mouseY)) {
+      bubbles[i].changeColor(255);
+    } else {
+      bubbles[i].changeColor(0);
+    }
+    bubbles[i].contains(mouseX, mouseY);
     bubbles[i].move();
     bubbles[i].show();
   }
@@ -34,19 +40,24 @@ class Bubble {
     this.r = r;
     this.brightness = 0;
   }
+
+  changeColor(bright) {
+    this.brightness = bright;
+  }
   
- clicked(px, py) {
+ contains(px, py) {
   let d = dist(px, py, this.x, this.y)
   if(d < this.r) {
-    this.brightness = 255;
-    console.log(`CLICKED ON BUBBLE`);
+    return true;
+  } else {
+    return false
   }
 
 }
 
   move() {
-   this.x += random(-5, 5);
-   this.y += random(-5, 5);
+   this.x += random(-2, 2);
+   this.y += random(-2, 2);
   }
   
   show() {
