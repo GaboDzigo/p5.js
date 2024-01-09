@@ -36,11 +36,13 @@ class Bubble {
 
   intersects(other) {
     let d = dist(this.y, this.y, other.x, other.y);
-    if (d < bubble1.r + bubble2.r) {
-      return true;
-    } else {
-    return false;
-    }
+    // if (d < this.r + other.r) {
+    //   return true;
+    // } else {
+    // return false;
+    // }
+    return d < this.r + other.r ? true : false;
+
   }
 
   changeColor(bright) {
@@ -49,11 +51,8 @@ class Bubble {
 
   contains(px, py) {
     let d = dist(px, py, this.x, this.y);
-    if (d < this.r) {
-      return true;
-    } else {
-      return false;
-    }
+    
+    return d < this.r ? true : false;
   }
   move() {
     this.x += random(-2, 2);
