@@ -1,15 +1,10 @@
-let kitten;
-let x = 0;
-
-function preload() {
-  kitten = loadImage('Cat6.webp')
+function setup() {
+  for(let i = 0; i < 100; i++) {
+    // some stuff will happen here later
+    if(mouseX . 20) {
+      let j = 20;
+    }
+    console.log(j);
+  }
+  console.log(i);
 }
-
- function setup() {
-  createCanvas(600,600)
- }
-
- function draw() {
-  background(220)
-  image(kitten, x, 0, mouseX, mouseY)
- }
